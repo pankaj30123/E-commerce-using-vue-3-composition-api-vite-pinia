@@ -7,16 +7,14 @@ import { useProductStore } from '@/store/product'
 import type { Product } from '@/store/product'
 import { toCurrency } from '@/shared/utils'
 
-import CartCardSkeleton from '@/components/CartCardSkeleton.vue'
+import CartCardSkeleton from '@/components/CardLayout.vue'
 
 const cartStore = useCartStore()
 const productStore = useProductStore()
 
 const route = useRoute()
 
-const product = computed<Product>(
-  () => productStore.items[route.params.productId as string],
-)
+const product = computed<Product>(() => productStore.items[route.params.productId as string])
 </script>
 
 <template>
@@ -26,11 +24,7 @@ const product = computed<Product>(
     </div>
     <div v-else-if="product" class="card lg:card-side bordered">
       <figure class="px-10 pt-10">
-        <img
-          :src="product.image"
-          alt="Card Image"
-          class="object-contain w-full h-64"
-        >
+        <img :src="product.image" alt="Card Image" class="object-contain w-full h-64" />
       </figure>
       <div class="card-body">
         <h2 class="card-title" v-text="product.title" />
@@ -39,16 +33,12 @@ const product = computed<Product>(
           {{ toCurrency(product.price) }}
         </p>
         <div class="card-actions">
-          <button class="btn btn-primary" @click="cartStore.add(product.id)">
-            Add to Cart
-          </button>
+          <button class="btn btn-primary" @click="cartStore.add(product.id)">Add to Cart</button>
         </div>
       </div>
     </div>
     <div v-else>
-      <h1 class="text-xl text-error">
-        No product found with id {{ route.params.productId }}
-      </h1>
+      <h1 class="text-xl text-error">No product found with id {{ route.params.productId }}</h1>
     </div>
   </div>
 </template>

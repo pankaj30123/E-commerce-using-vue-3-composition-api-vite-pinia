@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
-
 import { useCartStore } from '@/store/cart'
 import { useProductStore } from '@/store/product'
 import type { Product } from '@/store/product'
@@ -19,8 +18,10 @@ const product = computed<Product>(() => productStore.items[route.params.productI
 
 <template>
   <div class="p-4 max-w-4xl mx-auto">
+    
     <div v-if="!productStore.loaded">
       <CartCardSkeleton />
+      
     </div>
     <div v-else-if="product" class="card lg:card-side bordered">
       <figure class="px-10 pt-10">

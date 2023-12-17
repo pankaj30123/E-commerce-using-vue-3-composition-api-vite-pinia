@@ -1,6 +1,5 @@
   <script setup lang="ts">
 import { computed } from 'vue'
-import NavView from './components/NavView.vue'
 import { usePersistCart } from './composables/usePersistCart'
 import { useCartStore } from './store/cart'
 import { useProductStore } from './store/product'
@@ -18,7 +17,7 @@ const count = computed(() => cartStore.count)
   <div class="drawer">
     <input id="drawer-input" type="checkbox" class="drawer-toggle">
     <div class="bg-teal-100 text-base-content min-h-screen drawer-content">
-      <NavView />
+      
       <router-view />
     </div>
     <div class="drawer-side">

@@ -31,7 +31,7 @@ const signIn = async () => {
       <div class="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
         <div class="w-full text-start">
           <label for="email" class="text-align-left text-sm font-medium leading-6 text-emerald-500"
-            >Email address</label
+            >Email address </label
           >
         </div>
         <div>
